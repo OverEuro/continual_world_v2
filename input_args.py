@@ -43,7 +43,7 @@ def cl_parse_args(args=None):
     parser.add_argument(
         "--log_every",
         type=sci2int,
-        default=int(2e4),
+        default=int(5e4),
         help="Number of steps between subsequent evaluations and logging",
     )
     parser.add_argument(

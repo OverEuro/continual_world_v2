@@ -76,7 +76,7 @@ class Logger:
         """
         self.logger_output = logger_output
 
-        run_id = get_readable_timestamp() + "_" + get_random_string()
+        run_id = get_readable_timestamp() + "_" + config['tasks'] + "_" + config['cl_method'] + "_" + str(config['seed'])
         self.output_dir = output_dir or f"./logs/{group_id}/{run_id}"
         if osp.exists(self.output_dir):
             print(f"Warning: Log dir {self.output_dir} already exists! Storing info there anyway.")

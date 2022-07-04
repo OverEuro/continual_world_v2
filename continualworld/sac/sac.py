@@ -40,7 +40,7 @@ class SAC:
         update_every: int = 50,
         num_test_eps_stochastic: int = 10,
         num_test_eps_deterministic: int = 1,
-        max_episode_len: int = 200,
+        max_episode_len: int = 500,
         save_freq_epochs: int = 100,
         reset_buffer_on_task_change: bool = True,
         buffer_type: BufferType = BufferType.FIFO,

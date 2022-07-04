@@ -18,7 +18,7 @@ def get_mt50() -> metaworld.MT50:
 
 
 MT50 = get_mt50()
-META_WORLD_TIME_HORIZON = 200
+META_WORLD_TIME_HORIZON = 500
 MT50_TASK_NAMES = list(MT50.train_classes)
 MW_OBS_LEN = 12
 MW_ACT_LEN = 4
@@ -51,7 +51,7 @@ def get_single_env(
     task: Union[int, str],
     one_hot_idx: int = 0,
     one_hot_len: int = 1,
-    randomization: str = "random_init_all",
+    randomization: str = "deterministic",
 ) -> gym.Env:
     """Returns a single task environment.
 
@@ -146,7 +146,7 @@ class ContinualLearningEnv(gym.Env):
 
 
 def get_cl_env(
-    tasks: List[Union[int, str]], steps_per_task: int, randomization: str = "random_init_all"
+    tasks: List[Union[int, str]], steps_per_task: int, randomization: str = "deterministic"
 ) -> gym.Env:
     """Returns continual learning environment.
 
@@ -231,7 +231,7 @@ class MultiTaskEnv(gym.Env):
 
 
 def get_mt_env(
-    tasks: List[Union[int, str]], steps_per_task: int, randomization: str = "random_init_all"
+    tasks: List[Union[int, str]], steps_per_task: int, randomization: str = "deterministic"
 ):
     """Returns multi-task learning environment.
 
