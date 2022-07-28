@@ -39,12 +39,24 @@ seed="0" # seeds = {0, 2, 4, 6, 8}
 # --group_id cl_task >$path 2>&1 &
 
 # For MAS
-path="tmp_cl_mas_"$seed".output"
+# path="tmp_cl_mas_"$seed".output"
+
+# nohup python run_cl.py \
+# --tasks=CW10 \
+# --seed=$seed \
+# --cl_method=mas \
+# --cl_reg_coef=10000.0 \
+# --logger_output tsv \
+# --group_id cl_task >$path 2>&1 &
+
+# For VCL
+path="tmp_cl_vcl_"$seed".output"
 
 nohup python run_cl.py \
 --tasks=CW10 \
 --seed=$seed \
---cl_method=mas \
---cl_reg_coef=10000.0 \
+--cl_method=vcl \
+--cl_reg_coef=1.0 \
+--vcl_first_task_kl=False \
 --logger_output tsv \
 --group_id cl_task >$path 2>&1 &
